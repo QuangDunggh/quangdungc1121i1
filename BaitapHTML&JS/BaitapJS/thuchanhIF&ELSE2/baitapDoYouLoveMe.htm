@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Do you love me?</title>
+</head>
+<body>
+    <table>
+        <tr>
+            <th colspan="2"><h1>Do you love me?</h1></th>
+        </tr>
+        <tr>
+            <td><input type="button" value="YES" id="yes" onclick="clickYes()"></td>
+            <td><input type="button" value="NO" id="No" onmouseover="No()"></td>
+        </tr>
+    </table>
+    <script>
+        function clickYes() {
+            alert('<3');
+        }
+        function No() {
+            let Not = document.getElementById('No');
+            Not.style.position = 'relative'
+            let x = Math.random() * window.innerHeight;
+            let y = Math.random() * window.innerWidth;
+            document.getElementById('No').style.top = x + 'px';
+            document.getElementById('No').style.left = y + 'px';
+        }
+    </script>
+</body>
+</html>
