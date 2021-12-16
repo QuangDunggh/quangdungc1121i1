@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bang Cuu Chuong</title>
+</head>
+<body>
+    <script>
+        let sout = "<table border='1'>"
+        for (let i = 1; i < 10; i++) {
+            sout = sout + '<tr>';
+            for (let j = 1; j < 10; j++) {
+                sout = sout + '<td>' + String(j) + 'x' + String(i) + '=' + i * j + '</td>'; 
+            }
+            sout = sout + '</tr>'
+        }
+        sout = sout + '</table>';
+        document.write(sout)
+    </script>
+</body>
+</html>

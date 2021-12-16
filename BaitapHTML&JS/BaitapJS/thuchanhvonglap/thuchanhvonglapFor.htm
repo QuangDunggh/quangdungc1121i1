@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thuc hanh vong lap For</title>
+</head>
+<input type="text" id="number">
+<br>
+<input type="button" id="sum" value="TInh tong" onclick="sum()">
+<body>
+    <!-- 
+    <script>
+        let n;
+        for (n = 0; n <= 5; n++) {
+            document.write('The number is : ' + n + '<br>')
+        }
+    </script>
+     -->
+     <script>
+         function sum() {
+         let a = parseInt(document.getElementById('number').value)
+         let b;
+         let total ;
+         for (b = 1, total = 0; b <= a; b++) {
+             
+            total = total + b;
+            
+             
+         }
+         alert('ket qua la :' + total);
+         }
+        
+     </script>
+    
+</body>
+</html>

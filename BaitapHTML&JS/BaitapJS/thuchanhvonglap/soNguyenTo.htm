@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>So nguyen to</title>
+</head>
+
+<body>
+    <script>
+
+        // let n = 2;
+
+
+        // if (numbers < 2) {
+        //     console.log('khong phai la so nguyen to')
+        // } else if (numbers == 2 || numbers == 3) {
+        //     console.log('La so nguyen to')
+        // }
+        // for (x = 2; x <= (numbers-1); x++) {
+        //     if (numbers % x == 0) {
+        //         console.log('khong phai la so nguyen to')
+        //     } else {
+        //         console.log(numbers + '' + ' la so nguyen to')
+        //     }
+        // }
+
+        let numbers;
+        let x;
+        let count = 0;
+        function timSnt(numbers) {
+            let x;
+            // if (numbers = 2) {
+            //     return true;
+            // } 
+            for (x = 2; x <= (numbers - 1); x++) {
+                if (numbers % x == 0) {
+                    return false;
+                }
+            }
+            return true
+        }
+
+
+        for (let numbers = 2; count < 20; numbers++) {
+            if (timSnt(numbers)) {
+                document.write(numbers + '<br>');
+                count++;
+            }
+        }
+
+
+
+
+    </script>
+</body>
+
+</html>

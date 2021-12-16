@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Good cheap fast</title>
+</head>
+<body>
+    <table>
+        <tr>
+            <td><input type="checkbox" value="Good" id="good" checked onclick="document.getElementById('fast').checked = !this.value">Good</td>
+        </tr>
+        <tr>
+            <td><input type="checkbox" value="Cheap" id="cheap" checked onclick="document.getElementById('good').checked = !this.value">cheap</td>
+        </tr>
+        <tr>
+            <td><input type="checkbox" value="Fast" id="fast" onclick="document.getElementById('cheap').checked = !this.value">Fast</td>
+        </tr>
+    </table>
+    <script>
+      function click() {
+          let g = document.getElementById('good');
+          let c = document.getElementById('cheap');
+          let f = document.getElementById('fast');
+          let choose;
+          if (choose == g && choose == c) {
+              true;
+          } 
+      }  
+    </script>
+</body>
+</html>

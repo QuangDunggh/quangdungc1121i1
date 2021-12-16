@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bai tap vong lap 1</title>
+</head>
+
+<body>
+    <!-- Bai 1 -->
+    <!-- <script>
+        for (let i = 1; i <= 100; i++) {
+            console.log(i);
+            if (i == 99) {
+                break;
+            }
+        }
+        console.log('Da hoan thanh');
+    </script> -->
+
+    <!-- Bai 2 -->
+    <!-- <script> 
+        let nhietDo = Number(prompt('Hay nhap nhiet do hien tai cua ban:'));
+        while (nhietDo < 20) {
+            nhietDo = prompt('Hay tang nhiet do len!!!');
+            if (nhietDo > 20 && nhietDo < 100) {
+                break;
+            }
+        }
+        while (nhietDo > 100) {
+            nhietDo = prompt('Hay giam nhiet do xuong!!!');
+            if (nhietDo > 20 && nhietDo < 100) {
+                break;
+            }
+        }
+        alert('Nhiet do an toan')
+    </script> -->
+
+    <!-- Bai 3 -->
+    <!-- <script>
+        let n1 = 1;
+        let n2 = 1;
+        let nN = 1;
+        let count;
+        console.log(n1)
+        for (count = 1; count <= 20; count++) {
+            n1 = n2;
+            n2 = nN;
+            nN = n1 + n2;
+            console.log(n2);
+        }
+    </script> -->
+
+    <!-- Bai 4 -->
+    <!-- <script>
+        let n1 = 1;
+        let n2 = 1;
+        let nN = 1;
+        let count;
+        for (count = 1; count <= 20; count++) {
+            n1 = n2;
+            n2 = nN;
+            nN = n1 + n2;
+            if (n2 % 5 == 0) {
+                break
+            }
+        } console.log(n2) -->
+    <!-- </script> -->
+
+    <!-- Bai 5 -->
+    <!-- <script>
+        let n1 = 1;
+        let n2 = 1;
+        let nN = 0;
+        let total = 0;
+        let count;
+        for (count = 1; count <= 20; count++) {
+            n1 = n2;
+            n2 = nN;
+            nN = n1 + n2;
+            total += n2;
+            console.log(n2)
+        }
+        console.log(total + 1)
+    </script> -->
+
+    <!-- Bai 6 -->
+    <!-- <script>
+        let x;
+        function timSoChiaCho7(x) {
+            if (x % 7 == 0) {
+                return true
+            }
+            return false
+        }
+        let count = 1;
+        let total = 0;
+        for (x = 0; count <= 30; x++) {
+            if (timSoChiaCho7(x)) {
+                // console.log(x)
+                count++;
+                total += x
+            }
+        }
+        console.log(total)
+    </script> -->
+
+    <!-- Bai 7 -->
+    <!-- <script>
+        let a = 0;
+        for (a = 1; a <= 100; a++) {
+            if (a % 3 == 0 &&  a % 5 == 0) {
+                console.log('FizzBuzz')
+                continue;
+            }
+            if (a % 3 == 0) {
+                console.log('Fizz');
+                continue;
+            }
+            if (a % 5 == 0) {
+                console.log('Buzz')
+                continue;
+            }
+                
+            console.log(a)
+        }
+    </script> -->
+
+    <!-- Bai 8 -->
+    <input type="button" id="choi" value="Choi hoac Choi lai" onclick="guessNumber()">
+
+    <script>
+        function guessNumber() {
+            let distance = prompt('Nhap khoang so ban muon doan:');
+            let array = distance.split(',');
+            let min = Number(array[0]);
+            let max = Number(array[1]);
+            let guessNumber = Number(prompt('So ban doan trong day la:'));
+            let number = Math.floor(Math.random() * (max - min + 1)) + min;
+            for (let count = 0; count < 3; count++) {
+                if (guessNumber == number) {
+                    alert('Chuc mung ban doan dung!!!!!!!');
+                    break;
+                } else  {
+                    guessNumber = Number(prompt('Hay thu lai so khac:'))
+                } 
+            }
+            alert('Tro choi ket thuc!!!')
+
+            
+        }
+            
+
+
+    </script>
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+
+</html>
