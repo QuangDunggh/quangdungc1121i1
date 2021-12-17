@@ -15,8 +15,8 @@
             <td>
                 <input type="text" name="Cho nhap" id="phantu">
             </td>
-            <td><input type="button" id="add" value="Add" onclick="add_element_array()"></td>
-            <td><input type="button" id="Display" value="Display" onclick="reset()"></td>
+            <td><input type="button" id="add" value="Add" onclick="add_element_to_array()"></td>
+            <td><input type="button" id="Display" value="Display" onclick="re()"></td>
         </tr>
         <script>
             let x = 0;
@@ -28,7 +28,9 @@
                 document.getElementById('phantu').value = " "
             }
                
-            function reset() {
+            function re() {
+                document.write(array)
+
                
             }
                 

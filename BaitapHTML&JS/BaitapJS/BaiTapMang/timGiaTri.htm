@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tim gia tri trong mang</title>
+</head>
+<body>
+    <table>
+        <tr>
+            <td><input type="text" id="nhap" ></td>
+        </tr>
+        <tr>
+            <td>
+                <input type="button" id="button" value="Bam de hien thi" onclick="kiemtra()">
+            </td>
+                
+        </tr>
+        <script>
+            let array = [2,3,5,9,10,23,43];
+            function kiemtra() {
+                let numbers = document.getElementById('nhap').value;
+                for (let i = 0; i < array.length; i++) {
+                    if (numbers == array[i]) {
+                        alert('Dung,chinh xac!!!');
+                        break;
+                    } 
+                        alert('Sai roai!!!');
+                        break;
+                    
+                }
+                document.getElementById('nhap').value = ' ';
+            }
+        </script>
+    </table>
+</body>
+</html>
