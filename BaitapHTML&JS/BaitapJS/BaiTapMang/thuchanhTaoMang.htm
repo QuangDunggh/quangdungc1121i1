@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <table>
+        <tr>
+            <th><h3>Sample Screen</h3></th>
+        </tr>
+        <tr>
+            <td>
+                <input type="text" name="Cho nhap" id="phantu">
+            </td>
+            <td><input type="button" id="add" value="Add" onclick="add_element_array()"></td>
+            <td><input type="button" id="Display" value="Display" onclick="reset()"></td>
+        </tr>
+        <script>
+            let x = 0;
+            let array = [];
+            function add_element_to_array() {
+                array[x] = document.getElementById('phantu').value;
+                alert(array[x] + ' da duoc them vao mang va duoc them o vi tri: ' + x );
+                x++;
+                document.getElementById('phantu').value = " "
+            }
+               
+            function reset() {
+               
+            }
+                
+        </script>
+    </table>
+</body>
+</html>
