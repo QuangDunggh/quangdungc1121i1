@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kiem tra so nguyen to</title>
+</head>
+
+<body>
+    <h1><label for="">Kiem tra so nguyen to</label></h1>
+    <table>
+        <tr>
+            <th>Nhap so nguyen to vao o duoi de kiem tra</th>
+        </tr>
+        <tr>
+            <td>
+                <input type="text" name="input" id="nhap">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label for="" id="result">Result:</label>
+            </td>
+        </tr>
+        <tr>
+            <td><input type="button" value="Kiem tra" onclick="chucNangHTMl()"></td>
+        </tr>
+
+    </table>
+    <script>
+        function kiemTraSNT(numbers) {
+            numbers = Number(document.getElementById('nhap').value)
+            for (let i = 2; i < (numbers - 1); i++) {
+                if (numbers % i == 0) {
+                    return false;
+                }
+            } 
+            return true;
+        }
+                
+
+        function chucNangHTMl(numbers) {
+            numbers = Number(document.getElementById('nhap').value)
+            if (kiemTraSNT(numbers)) {
+               return document.getElementById('result').innerText = numbers + ' la so nguyen to'
+            } else {
+               return document.getElementById('result').innerText = numbers + ' khong phai la so nguyen to'
+            }
+        }
+
+    </script>
+</body>
+
+</html>

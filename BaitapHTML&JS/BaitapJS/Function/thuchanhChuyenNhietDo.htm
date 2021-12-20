@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chuyen nhiet do</title>
+</head>
+
+<body>
+
+    <h4>Temperature Converter</h4>
+
+
+
+    <p>Type a value in the Fahrenheit field to convert the value to Celcius </p>
+
+    <table>
+        <tr>
+        <tr>
+            <td>
+                <label for="">Fahrenheit</label>
+            </td>
+            <td>
+                <input type="text" name="input" id="input">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label for="" id="result">Celcius:</label>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input type="button" value="Kiem tra" onclick="chuyenDoiNhietDo()">
+
+            </td>
+        </tr>
+    </table>
+    <script>
+        function chuyenDoiNhietDo() {
+            let fah = document.getElementById('input').value;
+            let result = (fah - 32) / (9 / 5);
+            document.getElementById('result').innerText = 'Celcius: ' + result;
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tim gia tri lon nhat trong mang</title>
+</head>
+
+<body>
+    <script>
+        let arr = [];
+        let min = 10;
+        let max = 40;
+        let arrLength = 3;
+        // for (let i = 0; i < arrLength; i++) {
+        // arr[i] = []
+        //     for (let j = 0; j < arrLength; j++) {
+        //         arr[i][j] = Math.floor(Math.random() * (max - min + 1) + min);
+        //     }
+        // }
+        // console.log(arr);
+        function timGiaTriLonNhat() {
+            let maxInArr = 10;
+            for (let i = 0; i < arrLength; i++) {
+                arr[i] = []
+                for (let j = 0; j < arrLength; j++) {
+                    arr[i][j] = Math.floor(Math.random() * (max - min + 1) + min);
+
+                    if (maxInArr < arr[i][j]) {
+                        maxInArr = arr[i][j];
+
+                    }
+                }
+            }
+            console.log(arr)
+            console.log('maxInArr: ' + maxInArr)
+        }
+
+
+
+        timGiaTriLonNhat()
+    </script>
+</body>
+
+</html>

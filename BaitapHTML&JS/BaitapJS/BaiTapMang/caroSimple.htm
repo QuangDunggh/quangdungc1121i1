@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài thập thực hành tạo bàn cờ Caro trong Mảng</title>
+</head>
+<body>
+    <h3>Caro Game Simple</h3>
+    <div id="carogame"></div>
+    <input type="button" value="Change Value" onclick="changeValue()">
+    <script>
+        let banCo = document.getElementById('carogame');
+        let board = [];
+        let dataBoard = [0,0,0,0,0]
+        let data = '';
+        let boardLength = 5;
+        for (let i = 0; i < boardLength; i++) {
+            board[i] = dataBoard
+        }
+        // document.write(board)
+        for (let i = 0; i < boardLength; i++) {
+            data += '<br>';
+            for (let j = 0; j < boardLength; j++) {
+                data += board[i][j] + '&nbsp;&nbsp;';
+            }
+        }
+        data += '<br><input type="button" value="change value" onclick="changeValue"';
+        banCo.innerHTML = data
+        function changeValue() {
+            let positionX = prompt('X: ');
+            let positionY = prompt('Y: ');
+            data = '';
+            board[positionX][positionY] = 'x';
+            for (let i = 0; i < boardLength; i++) {
+                data += '<br>';
+                for (let j = 0; j < boardLength; j++) {
+                    data += board[i][j] + '&nbsp;&nbsp;&nbsp;&nbsp;'
+                }
+            }
+            data += '<br><input type="button" value="change value" onclick="changeValue"';
+            banCo.innerHTML = '<hr>' + data
+        }
+    </script>
+</body>
+</html>

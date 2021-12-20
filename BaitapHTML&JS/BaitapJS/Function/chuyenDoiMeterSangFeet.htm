@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chuyen doi meter sang feet va nguoc lai</title>
+</head>
+<body>
+    <h3>Chuyen doi dai luong do dai</h3>
+    <table>
+        <tr>
+            <th>Chuyen doi meters sang feet</th>
+        </tr>
+        <tr>
+            <td>
+                <input type="text" name="meter" id="meter" >
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label for="" id="result1">Result:</label>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input type="button" value="Chuyen doi" onclick="metersSangFeet()">
+            </td>
+        </tr>
+        <tr>
+            <td><hr width="100px"></td>
+        </tr>
+        <tr>
+            <th>Chuyen doi feet sang meter</th>
+        </tr>
+        <tr>
+            <td>
+                <input type="text" name="feet" id="feet">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label for="" id="result2">Result:</label>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input type="button" value="Chuyen doi" onclick="footSangMeter()">
+            </td>
+        </tr>
+    </table>
+    <script>
+        function metersSangFeet(number) {
+            number = Number(document.getElementById('meter').value);
+            let result = number * 3.279;
+            document.getElementById('result1').innerText = 'Result: ' + result + ' foot'
+        }
+        function footSangMeter(number) {
+            number = Number(document.getElementById('feet').value);
+            let result = number * 0.305;
+            document.getElementById('result2').innerText = 'Result: ' + result + ' meters'
+        }
+    </script>
+    
+</body>
+</html>

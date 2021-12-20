@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tim gia tri lon nhat trong mang</title>
+</head>
+<body>
+    <script>
+        let arr = []
+        let min = 10;
+        let max = 90;
+        let arrLength = 10;
+        let numbersMax = arr[0];
+        let index = 0;
+        for (let i = 0; i < arrLength; i++) {
+            arr[i] = Math.floor(Math.random()* (max -min + 1) + min)
+        }
+        console.log(arr)
+        for (let i = 0; i < arrLength; i++) {
+            if (arr[i] > numbersMax) {
+                numbersMax = arr[i];
+                index = i;
+            }
+        }
+        document.write('Gia tri lon nhat là ' + numbersMax + ' co vi tri: ' + index + '<br>')
+        document.write(arr)
+    </script>
+</body>
+</html>
