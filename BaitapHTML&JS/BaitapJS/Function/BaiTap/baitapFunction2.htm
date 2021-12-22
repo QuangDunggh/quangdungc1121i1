@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bai tap Luyen tap Ham 2</title>
+</head>
+
+<body>
+    <!-- Bai 1 -->
+    <!-- <script>
+        function square(a) {
+            return a * a;
+        }
+        console.log(square(12));
+    </script> -->
+
+    <!-- Bai 2 -->
+    <!-- <script>
+        function mathCS(r) {
+            let C = 2 * 3.14 * r;
+            let S = 3.14 * r * r;
+            alert(`Chu vi la: ${C} va Dien tich la: ${S}`) ;
+        }
+        console.log(mathCS(3));
+
+    </script> -->
+
+    <!-- Bai 3 -->
+    <!-- <script>
+        function giaThua() {
+            let numbers = Number(prompt('Enter your number:'));
+            let total = 1;
+            for (let i = 1; i <= numbers; i++) {
+                total *= i;
+            }
+            alert(`Giai thua cua ${numbers} la ${total}`);
+        }
+        giaThua();
+    </script> -->
+
+    <!-- Bài 4 -->
+    <!-- <script>
+        function checked(type) {
+            
+            if (isNaN(type)) {
+                return false;
+            } else {
+                return true;
+            }
+        }
+        console.log(checked('t'))
+
+            
+        // console.log(typeof(7))
+    </script> -->
+    <!-- Bai 5 -->
+    <!-- <script>
+        function compare(a, b, c) {
+            if (a < b && a < c) {
+                return a;
+            } else if (b < c) {
+                return b;
+            } else {
+                return c;
+            }
+        }
+        console.log(compare(45,56,23));
+    </script> -->
+
+    <!-- Bai 6 -->
+    <!-- <script>
+        function checkedIsInterger(number) {
+            if (Number.isInteger(number) && number > 0) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+        console.log(checkedIsInterger(13))
+    </script> -->
+
+    <!-- Bai 7 -->
+    <!-- <script>
+        function swap(a, b) {
+            let temp = a;
+            a = b;
+            b = temp;
+
+            console.log(a, b);
+        }
+        swap(12,16)
+    </script> -->
+
+    <!-- Bai 8 -->
+    <!-- <script>
+        let arr = [];
+        for (let i = 0; i < 5; i++) {
+            arr[i] = Math.floor(Math.random() * (10 - 1 + 1) + 1);
+        }
+        console.log(arr);
+        function daoNguocItem(array = []) {
+            array.reverse();
+            return array;
+        }
+        console.log(daoNguocItem(arr));
+    </script> -->
+
+    <!-- Bai 9 -->
+    <input type="button" value="Bam de kiem tra" onclick="checkedWord()">
+    <script>
+        let arr = ['sad','s','sd','q','g','u','q','a','a','g','g','w','a','a','y','t','f'];
+        let time = 0;
+        let xacNhan = 0;
+        function checkedWord() {
+            let string = prompt('Enter the word to check:');
+            for (let i = 0; i < arr.length; i++) {
+                if (string == arr[i]) {
+                    xacNhan = -1;
+                    time++;
+                }
+            }
+            if (xacNhan == -1) {
+                alert(`Ki tu co trong Array va xuat hien ${time} lan`);
+                time = 0;
+            } else {
+                alert('Ki tu khong nam trong Araay');
+            }
+                    
+                
+        }
+        
+    </script>
+
+</body>
+
+</html>

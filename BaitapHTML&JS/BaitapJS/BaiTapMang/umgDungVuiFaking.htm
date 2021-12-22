@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ung dung vui</title>
+</head>
+
+<body>
+    <tr>
+        <th>
+            <h1>Type anthing slowly</h1>
+        </th>
+    </tr>
+    <tr>
+        <td>
+            <textarea name="" id="text" cols="30" rows="10" onkeyup="onKey()"></textarea>
+        </td>
+    </tr>
+    <script>
+        let arr = ['T', 'u', 'n', 'g', ' ', 'O', 'c', ' ', 'C', 'h', 'o'];
+        let str = '';
+        function onKey() {
+            let word = document.getElementById('text').value;
+            let arr1 = [];
+            arr1.push(word)
+            let j = arr1.length;
+            if (j > 0) {
+                for (let i = 0; i < j; i++) {
+                    str = arr[i]
+                }
+                document.getElementById('text').value += str
+
+            }
+
+        }
+    </script>
+
+
+
+
+
+
+</body>
+
+</html>
