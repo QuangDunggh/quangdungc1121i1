@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Co Caro</title>
+    <style>
+        td:hover{
+            cursor: pointer;
+        }
+         table, tr, td{
+            border-collapse:  collapse;
+            border:1px solid black;}
+        td {
+            width: 50px;
+            height: 50px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="Caro"></div>
+    <script>
+        let caro = [];
+        let size = 10;
+        let tableCaro = '';
+        for (let i = 0; i < size; i++) {
+            caro[i] = [];
+            for (let j = 0; j < size; j++) {
+                caro[i][j] = 0;
+            }
+        }
+        tableCaro += `<table border=1>`;
+        for (let i = 0; i < size; i++) {
+            tableCaro += '<tr>';
+            for (let j = 0; j < size; j++) {
+                tableCaro += `<td>${caro[i][j] == 0 ? '&nbsp;&nbsp;' : (caro[i][j] == 1 ? 'X' : 'O')}</td>`
+            }
+            tableCaro += '</tr>';
+        }
+        tableCaro += '</table>'
+        document.getElementById('Caro').innerHTML = tableCaro;
+    </script>
+</body>
+
+</html>

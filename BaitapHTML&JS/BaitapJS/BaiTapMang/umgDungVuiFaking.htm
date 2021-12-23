@@ -22,14 +22,14 @@
     <script>
         let arr = ['T', 'u', 'n', 'g', ' ', 'O', 'c', ' ', 'C', 'h', 'o'];
         let str = '';
+        let arr1 = [];
         function onKey() {
             let word = document.getElementById('text').value;
-            let arr1 = [];
             arr1.push(word)
             let j = arr1.length;
             if (j > 0) {
                 for (let i = 0; i < j; i++) {
-                    str = arr[i]
+                    str += arr[i]
                 }
                 document.getElementById('text').value += str
 
