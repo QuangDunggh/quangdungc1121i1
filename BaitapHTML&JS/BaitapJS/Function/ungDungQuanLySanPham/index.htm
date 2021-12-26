@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Danh sách Sản phẩm</title>
+</head>
+
+<body>
+    <h5>Add New Product</h5>
+    <input type="text" id="addProduct">
+    <button onclick="addProduct()">Add</button>
+    <h5>Display All Product</h5>
+    <table>
+        <tr>
+            <th>Product Name</th>
+            <td>&nbsp;&nbsp;</td>
+            <td id="quantily">Quantily:</td>
+        </tr>
+    </table>
+    <div id="displayProduct"></div>
+
+    <script>
+        let products = ['Sony Xpeia', 'Samsum Galaxy', 'Nokia 6', 'Xiaomi Reami Note 4', 'Apple iphone 6S', 'Xiaomi Mi 5s Plus', 'Apple iPhone 8 Plus', 'Fujitsu F-04E', 'Oppo A71'];
+        let productsLength = products.length;
+        let tableProducts = '';
+        tableProducts += '<table border=1>';
+        for (let index = 0; index < productsLength; index++) {
+            tableProducts += '<tr>';
+            tableProducts += `<td><input type='text' id='editProduct${index}' value='${products[index]}'></td>`;
+            tableProducts += `<td><button onclick='editProduct(${index},${index})'>Edit</button></td>`;
+            tableProducts += `<td><button onclick='deleteProduct(${index})'>Delete</button></td>`;
+            tableProducts += '</tr>';
+        }
+        tableProducts += '</table>';
+        document.getElementById('displayProduct').innerHTML = tableProducts;
+        document.getElementById('quantily').innerText = `Quantily: ${productsLength}`
+
+        function addProduct() {
+            // let products = ['Sony Xpeia', 'Samsum Galaxy', 'Nokia 6', 'Xiaomi Reami Note 4', 'Apple iphone 6S', 'Xiaomi Mi 5s Plus', 'Apple iPhone 8 Plus', 'Fujitsu F-04E', 'Oppo A71'];
+            let add = document.getElementById('addProduct').value;
+            products.push(add)
+            let productsLength = products.length;
+            let tableProducts = '';
+            tableProducts += '<table border=1>';
+            for (let index = 0; index < productsLength; index++) {
+                tableProducts += '<tr>';
+                tableProducts += `<td><input type='text' id='editProduct${index}' value='${products[index]}'></td>`;
+                tableProducts += `<td><button onclick='editProduct(${index},${index})'>Edit</button></td>`;
+                tableProducts += `<td><button onclick='deleteProduct(${index})'>Delete</button></td>`;
+                tableProducts += '</tr>';
+            }
+            tableProducts += '</table>';
+            document.getElementById('displayProduct').innerHTML = tableProducts;
+            document.getElementById('quantily').innerText = `Quantily: ${productsLength}`;
+            document.getElementById('addProduct').value = '';
+            alert(`Đã thêm: '${add}' vào giỏ hàng`)
+        }
+        function deleteProduct(number) {
+            products.splice(number, 1);
+            let productsLength = products.length;
+            let tableProducts = '';
+            tableProducts += '<table border=1>';
+            for (let index = 0; index < productsLength; index++) {
+                tableProducts += '<tr>';
+                tableProducts += `<td><input type='text' id='editProduct${index}' value='${products[index]}'></td>`;
+                tableProducts += `<td><button onclick='editProduct(${index},${index})'>Edit</button></td>`;
+                tableProducts += `<td><button onclick='deleteProduct(${index})'>Delete</button></td>`;
+                tableProducts += '</tr>';
+            }
+            tableProducts += '</table>';
+            document.getElementById('displayProduct').innerHTML = tableProducts;
+            document.getElementById('quantily').innerText = `Quantily: ${productsLength}`;
+            document.getElementById('addProduct').value = '';
+        }
+        function editProduct(number, index) {
+            let editProduct = document.getElementById(`editProduct${index}`).value
+            products.splice(number, 1, editProduct);
+            let productsLength = products.length;
+            let tableProducts = '';
+            tableProducts += '<table border=1>';
+            for (let index = 0; index < productsLength; index++) {
+                tableProducts += '<tr>';
+                tableProducts += `<td><input type='text' id='editProduct${index}' value='${products[index]}'></td>`;
+                tableProducts += `<td><button onclick='editProduct(${index},${index})'>Edit</button></td>`;
+                tableProducts += `<td><button onclick='deleteProduct(${index})'>Delete</button></td>`;
+                tableProducts += '</tr>';
+            }
+            tableProducts += '</table>';
+            document.getElementById('displayProduct').innerHTML = tableProducts;
+            document.getElementById('quantily').innerText = `Quantily: ${productsLength}`;
+            document.getElementById('addProduct').value = '';
+            alert(`Đã sửa sản phẩm thành ${editProduct}`)
+        }
+
+
+    </script>
+</body>
+
+</html>
+
+
+
+
+

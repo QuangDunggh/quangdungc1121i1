@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text" id="check">
+    <button onclick="isPalindrome()">Kiểm tra</button>
+    <p>Result</p>
+    <script>
+        function isPalindrome(string) {
+            string = document.getElementById('check').value;
+            let arr = [];
+            arr = string.split('');
+            let arrLength = arr.length;
+            let last = arrLength - 1;
+            let xacNhan = 0;
+            for (let i = 0; i < arr.length / 2; i++, last--) {
+                if (arr[i] == arr[last]) {
+                    xacNhan = -1;
+                } else {
+                    xacNhan = 1;
+                    break;
+                }
+            }
+            if (xacNhan == -1) {
+                alert('la chuoi doi xung')
+            } else {
+                alert('Khong phai')
+            }
+
+
+
+        }
+    </script>
+</body>
+
+</html>

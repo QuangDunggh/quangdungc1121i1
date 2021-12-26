@@ -6,6 +6,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ung dung vui</title>
+    <style>
+        body {
+            text-align: center;
+        }
+    </style>
 </head>
 
 <body>
@@ -20,28 +25,22 @@
         </td>
     </tr>
     <script>
-        let arr = ['T', 'u', 'n', 'g', ' ', 'O', 'c', ' ', 'C', 'h', 'o'];
+        let arr = ['T', 'u', 'n', 'g', ' ', 'O', 'c', ' ', 'C', 'h', 'o', '!', '!'];
         let str = '';
-        let arr1 = [];
+        let index = 0;
+
+
         function onKey() {
-            let word = document.getElementById('text').value;
-            arr1.push(word)
-            let j = arr1.length;
-            if (j > 0) {
-                for (let i = 0; i < j; i++) {
-                    str += arr[i]
-                }
-                document.getElementById('text').value += str
-
+            if (str.length == arr.length) {
+                str = '';
+                index = 0
+            } else {
+                str += `${arr[index]}`;
+                index++;
             }
-
+            document.getElementById('text').value = str;
         }
     </script>
-
-
-
-
-
 
 </body>
 
