@@ -6,102 +6,193 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Danh sách Sản phẩm</title>
+    <style>
+        table,
+        th,
+        tr,
+        td {
+            border-collapse: collapse;
+
+            margin: 0px auto;
+            text-align: center
+        }
+
+        #displayProduct {
+
+            width: 10px;
+            height: 50px;
+        }
+    </style>
+
 </head>
 
 <body>
     <h5>Add New Product</h5>
-    <input type="text" id="addProduct">
-    <button onclick="addProduct()">Add</button>
+    <input type="search" id="keyword" oninput="search()">
+    <button oninput="search()">Search</button>
     <h5>Display All Product</h5>
-    <table>
-        <tr>
-            <th>Product Name</th>
-            <td>&nbsp;&nbsp;</td>
-            <td id="quantily">Quantily:</td>
-        </tr>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>ID Sản phẩm</th>
+                <th>Product Name</th>
+                <th>Catetory</th>
+                <th>Quanlity</th>
+                <th>Price</th>
+
+                <th colspan='2'>Get it if you want!!!!</th>
+            </tr>
+        </thead>
+        <tbody id="displayProduct">
+
+        </tbody>
     </table>
-    <div id="displayProduct"></div>
-
+    <div>
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>Tên sản phẩm</th>
+                    <th>Số lượng</th>
+                    <th>Giá tiền</th>
+                    <th>Thành tiền</th>
+                    <th>Số ID của sản phẩm</th>
+                </tr>
+            </thead>
+            <tbody id="showCustomer">
+            </tbody>
+            <tr>
+                <td colspan="4">
+                    <input type="button" value="Buy">
+                </td>
+            </tr>
+        </table>
+    </div>
     <script>
-        let products = ['Sony Xpeia', 'Samsum Galaxy', 'Nokia 6', 'Xiaomi Reami Note 4', 'Apple iphone 6S', 'Xiaomi Mi 5s Plus', 'Apple iPhone 8 Plus', 'Fujitsu F-04E', 'Oppo A71'];
-        let productsLength = products.length;
-        let tableProducts = '';
-        tableProducts += '<table border=1>';
-        for (let index = 0; index < productsLength; index++) {
-            tableProducts += '<tr>';
-            tableProducts += `<td><input type='text' id='editProduct${index}' value='${products[index]}'></td>`;
-            tableProducts += `<td><button onclick='editProduct(${index},${index})'>Edit</button></td>`;
-            tableProducts += `<td><button onclick='deleteProduct(${index})'>Delete</button></td>`;
-            tableProducts += '</tr>';
+        class Phone {
+            constructor(id, name, catetory, quanlity, price) {
+                this.id = id;
+                this.name = name;
+                this.catetory = catetory;
+                this.quanlity = quanlity;
+                this.price = price;
+            }
         }
-        tableProducts += '</table>';
-        document.getElementById('displayProduct').innerHTML = tableProducts;
-        document.getElementById('quantily').innerText = `Quantily: ${productsLength}`
+        class CartItem {
+            constructor(name, quanlity, price, totalPrice, id) {
+                this.name = name;
+                this.quanlity = quanlity;
+                this.price = price;
+                this.totalPrice = totalPrice;
+                this.id = id;
+            }
+        }
+        let iphone8 = new Phone(0, 'iphone8', 'IOS', 30, 600);
+        let iphone9 = new Phone(1, 'iphone9', 'IOS', 30, 700);
+        let iphoneX = new Phone(2, 'iphoneX', 'IOS', 30, 800);
+        let glaxyS7 = new Phone(3, 'glaxyS7', 'Android', 30, 500);
+        let glaxyS8 = new Phone(4, 'glaxyS8', 'Android', 30, 600);
+        let glaxyS9 = new Phone(5, 'glaxyS9', 'Android', 30, 900);
+        let xiaomi1 = new Phone(6, 'xiaomi1', 'Android', 30, 400);
+        let xiaomi2 = new Phone(7, 'xiaomi2', 'Android', 30, 500);
+        let xiaomi3 = new Phone(8, 'xiaomi3', 'Android', 30, 900);
+        //console.log(iphone8)
+        let phones = [iphone8, iphone9, iphoneX, glaxyS7, glaxyS8, glaxyS9, xiaomi1, xiaomi2, xiaomi3];
+        let cart = [];
 
-        function addProduct() {
-            // let products = ['Sony Xpeia', 'Samsum Galaxy', 'Nokia 6', 'Xiaomi Reami Note 4', 'Apple iphone 6S', 'Xiaomi Mi 5s Plus', 'Apple iPhone 8 Plus', 'Fujitsu F-04E', 'Oppo A71'];
-            let add = document.getElementById('addProduct').value;
-            products.push(add)
-            let productsLength = products.length;
-            let tableProducts = '';
-            tableProducts += '<table border=1>';
-            for (let index = 0; index < productsLength; index++) {
-                tableProducts += '<tr>';
-                tableProducts += `<td><input type='text' id='editProduct${index}' value='${products[index]}'></td>`;
-                tableProducts += `<td><button onclick='editProduct(${index},${index})'>Edit</button></td>`;
-                tableProducts += `<td><button onclick='deleteProduct(${index})'>Delete</button></td>`;
-                tableProducts += '</tr>';
+        function showPhone(data) {
+            let length = data.length;
+            let tablePhone = '';
+
+            for (let i = 0; i < length; i++) {
+                tablePhone += `<tr>
+                  <td>${data[i].id}</td>
+                  <td>${data[i].name}</td>
+                  <td>${data[i].catetory}</td>
+                  <td>${data[i].quanlity}</td>
+                  <td>${data[i].price}</td>
+                  <td><input type='number' id='number${i}'></td>
+                  <td><input type='button' value='Get' onclick='getphone(${i})'></td>
+                  </tr>`;
             }
-            tableProducts += '</table>';
-            document.getElementById('displayProduct').innerHTML = tableProducts;
-            document.getElementById('quantily').innerText = `Quantily: ${productsLength}`;
-            document.getElementById('addProduct').value = '';
-            alert(`Đã thêm: '${add}' vào giỏ hàng`)
-        }
-        function deleteProduct(number) {
-            products.splice(number, 1);
-            let productsLength = products.length;
-            let tableProducts = '';
-            tableProducts += '<table border=1>';
-            for (let index = 0; index < productsLength; index++) {
-                tableProducts += '<tr>';
-                tableProducts += `<td><input type='text' id='editProduct${index}' value='${products[index]}'></td>`;
-                tableProducts += `<td><button onclick='editProduct(${index},${index})'>Edit</button></td>`;
-                tableProducts += `<td><button onclick='deleteProduct(${index})'>Delete</button></td>`;
-                tableProducts += '</tr>';
-            }
-            tableProducts += '</table>';
-            document.getElementById('displayProduct').innerHTML = tableProducts;
-            document.getElementById('quantily').innerText = `Quantily: ${productsLength}`;
-            document.getElementById('addProduct').value = '';
-        }
-        function editProduct(number, index) {
-            let editProduct = document.getElementById(`editProduct${index}`).value
-            products.splice(number, 1, editProduct);
-            let productsLength = products.length;
-            let tableProducts = '';
-            tableProducts += '<table border=1>';
-            for (let index = 0; index < productsLength; index++) {
-                tableProducts += '<tr>';
-                tableProducts += `<td><input type='text' id='editProduct${index}' value='${products[index]}'></td>`;
-                tableProducts += `<td><button onclick='editProduct(${index},${index})'>Edit</button></td>`;
-                tableProducts += `<td><button onclick='deleteProduct(${index})'>Delete</button></td>`;
-                tableProducts += '</tr>';
-            }
-            tableProducts += '</table>';
-            document.getElementById('displayProduct').innerHTML = tableProducts;
-            document.getElementById('quantily').innerText = `Quantily: ${productsLength}`;
-            document.getElementById('addProduct').value = '';
-            alert(`Đã sửa sản phẩm thành ${editProduct}`)
+            tablePhone += `'<tr>      
+              <td colspan=4><input type=text value='Tổng sản phẩm hiện có:' disabled></td>
+              <td colspan=3><input type=text value='Tổng giá:' disabled></td>
+              <td></td>
+              <tr>
+              </table>`;
+            document.getElementById('displayProduct').innerHTML = tablePhone;
         }
 
+        function search() {
+            let keyword = document.getElementById("keyword").value;
+            let searchResult = phones.filter(function (phone, index) {
+                return phone.name.toLowerCase().indexOf(keyword.toLowerCase()) != -1;
+            })
+            showPhone(searchResult);
+        }
 
+        function showCustomer(sanPham = []) {
+            let len = sanPham.length;
+            let tableCustomer = '';
+            for (let i = 0; i < len; i++) {
+                tableCustomer += `<tr>
+                                    <td>${sanPham[i].name}</td>
+                                    <td><input type='number' id='num${i}'  value='${sanPham[i].quanlity}' oninput='changeSL(${i})'></td>
+                                    <td><input type=text id='price${i}' value='${sanPham[i].price}' disabled></td>
+                                    <td><input type=text id='totalPrice${i}' value='${sanPham[i].totalPrice}' disabled></td>
+                                    <td><input type='text' id='idSanPham${i}' value='${sanPham[i].id}' disabled></td>
+                                    <td>
+                                        <button onclick="removeCart(${i})">Delete</button>
+                                    </td>
+                                  </tr>
+                                `
+            }
+            document.getElementById('showCustomer').innerHTML = tableCustomer
+        }
+
+        function removeCart(index) {
+            let removeProduct = Number(document.getElementById(`num${index}`).value);
+            let id = document.getElementById(`idSanPham${index}`).value
+            if (phones[id].quanlity >= 30) {
+                return
+            }
+            let cartItem = new CartItem(`Sản phẩm đã được trả lại`, 0, 0, 0, 'Không có sản phẩm')
+            phones[id].quanlity += removeProduct;
+            cart.splice(`${index}`, 1, cartItem)
+            showCustomer(cart);
+            showPhone(phones);
+        }
+
+        function getphone(index) {
+            let chosenPhone = document.getElementById(`number${index}`).value;
+            if (chosenPhone > phones[index].quanlity) {
+                alert('Số lượng sản phẩm không đủ không đủ!!!');
+                return;
+            }
+            phones[index].quanlity -= chosenPhone;
+            let cartItem = new CartItem(phones[index].name, chosenPhone, phones[index].price, phones[index].price *
+                chosenPhone, index);
+            cart.push(cartItem);
+            showCustomer(cart);
+            showPhone(phones);
+        }
+
+        function changeSL(index) {
+            let chosenPhone = Number(document.getElementById(`num${index}`).value);
+            let pricePhone = Number(document.getElementById(`price${index}`).value);
+            let result = chosenPhone * pricePhone;
+            document.getElementById(`totalPrice${index}`).value = result ;
+        }
+
+        (function () {
+            showPhone(phones);
+        })();
+
+        (function () {
+            showCustomer();
+        })()
     </script>
+
 </body>
 
 </html>
-
-
-
-
-
