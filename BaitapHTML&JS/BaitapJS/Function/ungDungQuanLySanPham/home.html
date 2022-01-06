@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div>
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>Số ID của sản phẩm</th>
+                    <th>Tên sản phẩm</th>
+                    <th>Số lượng</th>
+                    <th>Giá tiền</th>
+                    <th>Thành tiền</th>
+                </tr>
+            </thead>
+            <tbody id="showCustomer">
+            </tbody>
+        </table>
+    </div>
+
+    <button onclick="checkout()">Check out</button>
+    <script>
+        class CartItem {
+            constructor(name, quanlity, price, totalPrice, id) {
+                this.name = name;
+                this.quanlity = quanlity;
+                this.price = price;
+                this.totalPrice = totalPrice;
+                this.id = id;
+            }
+        }
+        let phones = JSON.parse(window.localStorage.getItem('phones'))
+        let cartItem = []
+        let cart = [];
+        cart = JSON.parse(window.localStorage.getItem("cart"));
+        console.log(cart);
+
+        function showCustomer(sanPham = []) {
+            let len = sanPham.length;
+            let tableCustomer = '';
+            for (let i = 0; i < len; i++) {
+                tableCustomer += `<tr>
+                            <td><input type='text' id='idSanPham${i}' value='${sanPham[i].id}' disabled></td>        
+                            <td>${sanPham[i].name}</td>
+                            <td><input type='number' id='num${i}' required min = 0 required max = ${phones[i].quanlity}  value='${sanPham[i].quanlity}' oninput='changeSL(${i})'></td>
+                            <td><input type=text id='price${i}' value='${sanPham[i].price}' disabled></td>
+                            <td><input type=text id='totalPrice${i}' value='${sanPham[i].totalPrice}' disabled></td>
+                            
+                            <td>
+                                <button onclick="removeCart(${i})">Delete</button>
+                            </td>
+                          </tr>
+                        `
+            }
+            document.getElementById('showCustomer').innerHTML = tableCustomer
+        }
+
+        function removeCart(index) {
+            let removeProduct = Number(document.getElementById(`num${index}`).value);
+            let id = document.getElementById(`idSanPham${index}`).value
+            let cartItem = new CartItem(`Sản phẩm đã được trả lại`, 0, 0, 0, 'Không có sản phẩm')
+            cart.splice(index, 1, cartItem)
+            showCustomer(cart);
+        }
+
+        function changeSL(index) {
+            let chosenPhone = Number(document.getElementById(`num${index}`).value);
+            if (chosenPhone > phones[index].quanlity) {
+                return;
+            }
+            let pricePhone = Number(document.getElementById(`price${index}`).value);
+            let result = chosenPhone * pricePhone;
+            document.getElementById(`totalPrice${index}`).value = result;
+        }
+        (function () {
+            showCustomer(cart)
+        })()
+
+        function checkout() {
+            localStorage.removeItem("cart");
+            cart = window.localStorage.getItem("cart") != null ? JSON.parse((window.localStorage.getItem("cart"))) : [];
+            showCustomer(cart)
+        }
+    </script>
+</body>
+
+</html>

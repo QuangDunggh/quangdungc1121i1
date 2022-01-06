@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thực hành vẽ lớp Date</title>
+</head>
+
+<body>
+    <script>
+        class Date {
+            constructor(day, month, year) {
+                this.day = day;
+                this.month = month;
+                this.year = year;
+            }
+            getday() {
+                return this.day;
+            }
+            getMonth() {
+                return this.month;
+            }
+            getYear() {
+                return this.year;
+            }
+            setDay(day) {
+                this.day = day;
+            }
+            setMonth(month) {
+                this.month = month;
+            }
+            setYear(year) {
+                this.year = year;
+            }
+
+        }
+        let calculator = [
+            new Date(29, 12, 2021)
+        ];
+        calculator[0].setMonth(1) 
+        calculator[0].setYear(2022) 
+        calculator[0].setDay(1) 
+        console.log(calculator[0])
+    </script>
+</body>
+
+</html>
