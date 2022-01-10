@@ -1,7 +1,6 @@
 package com.Loops;
 
 import java.util.Scanner;
-import java.lang.Math;
 
 public class UCLN {
     public static void main(String[] args) {
