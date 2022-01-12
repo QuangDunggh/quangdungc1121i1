@@ -12,11 +12,12 @@ public class TinhTongDuongCheoChinh {
         int[][] array = new int[size][size];
         for (int i = 0; i < size; i++) {
             array[i] = new int[size];
-            System.out.println("Array: " + i);
+            System.out.println(" ");
             for (int j = 0; j < size; j++) {
                 array[i][j] = (int) (Math.random() * (max - min + 1) + min);
-                System.out.println(array[i][j]);
+                System.out.print(array[i][j] + "      ");
             }
+            System.out.println();
         }
         System.out.println("TOng duong cheo chinh la: " + totalMain(array));
     }
