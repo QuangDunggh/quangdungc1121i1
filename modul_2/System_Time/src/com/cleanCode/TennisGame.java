@@ -1,88 +1,92 @@
 package com.cleanCode;
 
-public class TennisGame  {
-    static final int isZero = 0;
-    static final int isFifteen = 15;
-    static final int isThirty = 30;
-    static final int isForty = 40;
-    public static final int isTempTwentyFive = 25;
-    public static final int isTempForty = 40;
-    public static final int isTempTen = 10;
-    public static final int isTempSixty = 60;
-    public static final int isTempFortyFive = 45;
-    public static final int isTempTwenty = 20;
+public class TennisGame {
 
-    public static void main(String[] args) {
-        System.out.println(getScore( 50, 60));
-    }
+    public static final String LOVE_ALL = "Love-All";
+    public static final String FIFTEEN_ALL = "Fifteen-All";
+    public static final String THIRTY_ALL = "Thirty-All";
+    public static final String FORTY_ALL = "Forty-All";
+    public static final String DEUCE = "Deuce";
+    public static final int scoreEnd = 4;
+    public static final int scoreStart = 1;
+    public static final int tempScore = 2;
+    public static final int scoreThree = 3;
+    public static final String LOVE = "Love";
+    public static final String FIFTEEN = "Fifteen";
+    public static final String THIRTY = "Thirty";
+    public static final String FORTY = "Forty";
+    public static final int scoreZero = 0;
 
-    public static String getScore( int playerScore1, int playerScore2) {
-        StringBuilder score = new StringBuilder();
-        if (playerScore1 == playerScore2) {
-            score = isEqual(playerScore1);
+    public static String getScore(String player1Name, String player2Name, int scorePlayer1, int scorePlayer2) {
+        String score = "";
+        int tempScore = scoreZero;
+        boolean isEquals = scorePlayer1 == scorePlayer2;
+        if (isEquals) {
+            score = getDraw(scorePlayer1);
+        } else if (scorePlayer1 >= scoreEnd || scorePlayer2 >= scoreEnd) {
+            score = getWin(scorePlayer1, scorePlayer2);
         } else {
-            score = isWin(playerScore1, playerScore2, score);
+            score = getReadScore(scorePlayer1, scorePlayer2, score);
         }
-        return score.toString();
+        return score;
     }
 
-    private static StringBuilder isWin(int playerScore1, int playerScore2, StringBuilder score) {
-        int tempScore;
-        boolean isPlayerScore1MoreThanFour = playerScore1 <= 40;
-        boolean isPlayerScore2MoreThanFour = playerScore2 <= 40;
-        if (isPlayerScore1MoreThanFour || isPlayerScore2MoreThanFour) {
-            int minusResult = playerScore1 - playerScore2;
-            switch (minusResult) {
-                case isTempTen:
-                case isFifteen:
-                case isTempTwentyFive:
-                case isTempForty:
-                    score = new StringBuilder("Advantage player1");
+    private static String getReadScore(int scorePlayer1, int scorePlayer2, String score) {
+        int tempScore = scoreZero;
+        for (int i = scoreStart; i < scoreThree; i++) {
+            if (i == scoreStart) tempScore = scorePlayer1;
+            else {
+                score += "-";
+                tempScore = scorePlayer2;
+            }
+            switch (tempScore) {
+                case scoreZero:
+                    score += LOVE;
                     break;
-                case -isTempTen:
-                case -isFifteen:
-                case -isTempTwentyFive:
-                case -isTempForty:
-                    score = new StringBuilder("Advantage player2");
+                case scoreStart:
+                    score += FIFTEEN;
                     break;
-                case isTempSixty:
-                case isTempFortyFive:
-                case isThirty:
-                case isTempTwenty:
-                    score = new StringBuilder("Win for player1");
+                case TennisGame.tempScore:
+                    score += THIRTY;
                     break;
-                case -isTempSixty:
-                case -isTempFortyFive:
-                case -isThirty:
-                case -isTempTwenty:
-                    score = new StringBuilder("Win for player2");
+                case scoreThree:
+                    score += FORTY;
                     break;
             }
-        } else {
-            score = new StringBuilder("Deuce");
         }
         return score;
     }
 
-    private static StringBuilder isEqual(int playerScore1) {
-        StringBuilder score;
-        switch (playerScore1) {
-            case isZero:
-                score = new StringBuilder("Love-All");
+    private static String getWin(int scorePlayer1, int scorePlayer2) {
+        String score;
+        int minusResult = scorePlayer1 - scorePlayer2;
+        if (minusResult == scoreStart) score = "Advantage player1";
+        else if (minusResult == -scoreStart) score = "Advantage player2";
+        else if (minusResult >= TennisGame.tempScore) score = "Win for player1";
+        else score = "Win for player2";
+        return score;
+    }
+
+    private static String getDraw(int score) {
+        String result;
+        switch (score) {
+            case scoreZero:
+                result = LOVE_ALL;
                 break;
-            case isFifteen:
-                score = new StringBuilder("Fifteen-All");
+            case scoreStart:
+                result = FIFTEEN_ALL;
                 break;
-            case isThirty:
-                score = new StringBuilder("Thirty-All");
+            case TennisGame.tempScore:
+                result = THIRTY_ALL;
                 break;
-            case isForty:
-                score = new StringBuilder("Forty-All");
+            case scoreThree:
+                result = FORTY_ALL;
                 break;
             default:
-                score = new StringBuilder("Deuce");
+                result = DEUCE;
                 break;
+
         }
-        return score;
+        return result;
     }
 }
