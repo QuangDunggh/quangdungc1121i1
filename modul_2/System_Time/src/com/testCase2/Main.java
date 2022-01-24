@@ -39,6 +39,7 @@ public class Main {
                     setYear(newDate, month, year);
                 } else {
                     System.out.println(NOTHISDAY);
+                    return null;
                 }
                 break;
             case 4:
@@ -51,6 +52,7 @@ public class Main {
                     setDayWithMonth(newDate, month, year);
                 } else {
                     System.out.println(NOTHISDAY);
+                    return null;
                 }
                 break;
             case 2:
@@ -69,6 +71,7 @@ public class Main {
                         setDayWithMonth(newDate, month, year);
                     } else {
                         System.out.println(NOTHISDAY);
+                        return null;
                     }
                 } else {
                     if (date.getDate() < 28) {
@@ -77,6 +80,7 @@ public class Main {
                         setDayWithMonth(newDate, month, year);
                     } else {
                         System.out.println(NOTHISDAY);
+                        return null;
                     }
                     break;
                 }
